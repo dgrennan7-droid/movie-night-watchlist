@@ -10,7 +10,7 @@ from dataclasses import dataclass
 
 from drafter import *
 
-
+set_site_information(author="Daniel Grennan",\n description="Plan your movie night with ease!",\n sources="Assisted by LLMs",\n planning="part0.pdf and part1,pdf",\n links=[]
 GENRES = ["Action", "Comedy", "Horror", "Sci-Fi", "Romance"]
 RATINGS = ["1", "2", "3", "4", "5"]
 MAX_MOVIES = 12
