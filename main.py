@@ -10,7 +10,7 @@ from dataclasses import dataclass
 
 from drafter import *
 
-set_site_information(author="Daniel Grennan",\n description="Plan your movie night with ease!",\n sources="Assisted by LLMs",\n planning="part0.pdf and part1,pdf",\n links=[]
+
 GENRES = ["Action", "Comedy", "Horror", "Sci-Fi", "Romance"]
 RATINGS = ["1", "2", "3", "4", "5"]
 MAX_MOVIES = 12
@@ -294,11 +294,11 @@ assert_equal(genre_rows(SAMPLE)[1], ["Action", "1"])
 # ---------------------------------------------------------------- site settings
 set_website_title("Movie Night Watchlist")
 set_site_information(
-    author="YOUR NAME HERE",
+    author="Daniel Grennan",
     description="Track movies, rate them, and see your watching stats.",
-    sources=["Written by me with help from Claude (conversation uploaded)"],
-    planning="planning.pdf",
-    links=["https://github.com/YOUR-USERNAME/YOUR-REPO"]
+    sources=["Written by me with help from LLM (conversation uploaded)"],
+    planning="part1.pdf, part0.pdf",
+    links=["dgrennan7-droid.github.io/movie-night-watchlist/"]
 )
 hide_debug_information()
 
