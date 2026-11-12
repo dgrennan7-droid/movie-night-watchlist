@@ -10,7 +10,7 @@ from dataclasses import dataclass
 
 from drafter import *
 
-# Global constants (allowed by the assignment)
+
 GENRES = ["Action", "Comedy", "Horror", "Sci-Fi", "Romance"]
 RATINGS = ["1", "2", "3", "4", "5"]
 MAX_MOVIES = 12
@@ -300,7 +300,7 @@ set_site_information(
     planning="planning.pdf",
     links=["https://github.com/YOUR-USERNAME/YOUR-REPO"]
 )
-# hide_debug_information()  # uncomment for the final deployed version
+hide_debug_information()
 
 start_server(State("Movie Fan", [], 0, "Add your first movie!"))
 
