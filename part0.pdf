@@ -1,0 +1,248 @@
+Final Project: Pick a Project
+Computer Science - Week 10
+Oct 3, 2026 - Version 0.0.2
+Please make sure to your UD email AND name is below. Unless your UD emails are
+included in this table, then you will not earn any points for this assignment when it is
+graded! Every person should submit their own individual worksheet.
+Talk about each of the questions with a friend or our LLM (or both), but make sure the
+words you enter below are yours (with the obvious exceptions notwithstanding).
+Brainstorming is best done in full sentences, and the main goal here is brainstorming.
+It's worth reviewing the information in this series of pages in the Drafter documentation
+to gain a better understanding of the process.
+Role Name Email
+Developer (You) Daniel Grennan dgrennan@udel.edu
+Friend (optional)
+Part 1: The Goal & Prior Implementations
+1. Identify the Goal: What specific goal are you trying to address? Think about
+your passions, hobbies, and academic interests. The latter are an excellent
+candidate to focus on. Some majors have suggestions listed below: these were
+provided by faculty in those departments. Other majors could consider a focus
+tied to a big final assignment in one of their recent courses in their major.
+○ Biomedical Engineering majors may consider one of the following:
+■ If you have started (or completed) the Cell/Tissue Design final
+project in BMEG100, design an organoid, which involves combining
+a cell type, biomaterial, and testing method. Have the website
+include a description and diagram of your design concept, a testing
+method, a needs statement, and an impact statement relevant to
+their organoid. Also include a link to a paper that supports your idea
+and a paragraph describing how that paper supports your design
+concept.
+■ Otherwise, create a website related to your BMEG100 Lab Report
+1, Cytoskeletal and Nuclear Staining Lab Report Guidelines, linked
+here (University of Delaware account required to access).
+○ Chemistry and Chemical Engineering majors may consider creating an
+automated chemistry assistant that takes balanced reaction equations,
+starting reactant masses, and a harvested product amount to determine
+the limiting reactant, theoretical yield, and percent yield based on
+principles from Chemistry 2e (OpenStax) — Chapter 4: Chemical
+Reactions and Stoichiometry. To avoid manually compiling atomic mass
+tables or writing custom string tokenizers, use the ChemPy library to parse
+molecular formulas into exact molecular weights and verify reaction
+stoichiometry against compound data from the NIH PubChem Database.
+The program outputs an organized breakdown of limiting reagent status,
+product yields, and remaining masses of unreacted species. Also use the
+heat of the reaction to determine if it is exothermic or endothermic, and
+compute the heat flow per mole of the product.
+○ Majors in the Electric & Computer Engineering department may
+consider a steganography project that hides messages in images, and
+then retrieves those messages from uploaded images.
+○ Mechanical Engineering majors may consider a project that somehow
+uses both the NumPy and SciPy Python libraries.
+I am not specifically aiming for a goal in particular, I am just looking to make something that
+could be useful to track things, like maybe tv shows, movies, video games etc.
+2. Prior Implementations: Search the internet. What existing tools or websites
+currently attempt to address it?
+Some websites like imbd, metacritic, and gamespot could be used in similar ways.
+3. Your Implementation: Briefly describe the legitimate purpose or functionality of
+your site. How would you want this web application to be used?
+I would want it to be used to track what shows/ movies i have watched/ going to watch and
+make a new list with all of them.
+Part 2: The Input-Process-Output (IPO) Model
+Think about the fundamental flow of your program.
+1. The Core Goal: Every program has three main phases: taking input, processing
+data, and presenting output. In one sentence, what is the ultimate goal your
+program will accomplish for the user? Be specific and use CS1 concepts.
+This program will help the user track the list of shows or movies they meant to watch and
+can also include ratings of the movies/shows.
+2. Input: What specific information will the user need to provide to your program?
+(e.g., a city name, a numerical budget, a list of hobbies).
+They will need to provide the movie's name, its rating, and whether or not they have
+watched it yet. Also optionally if they would like to include their name to get a more personal
+experience
+3. Processing: At a high level, how will the computer manipulate or evaluate that
+data? (e.g., calculate the average, filter out options that are too expensive,
+compare the input against a database).
+It takes in text and then makes sure the text isn't repeated as well as taking in a number 1-5
+in a drop down box.
+4. Output: What will the user get back? (e.g., a recommendation, a calculated
+safety factor, a formatted schedule).
+The program will return a formatted schedule in a way of all the movies and shows they
+have watched and will be able to add and remove as they wish
+Part 3: Data Abstraction
+Identify the "nouns" of your problem.
+1. Representing Reality: Abstraction is the process of representing the real world
+inside a computer by ignoring unnecessary details. What are the core "things"
+(nouns) your program needs to track? (e.g., If building a recipe app, the nouns
+are "Recipe" and "Ingredient").
+Movie for movies and Watchlist
+2. Identifying Properties: For the most important "thing" you listed above, what 3
+to 4 specific details do you actually need to solve your problem, and what details
+will you abstract away?
+○ Details I need: (e.g., Ingredient name, weight, cost)
+○ Details I will ignore: (e.g., Ingredient color, brand, expiration date)
+Title, Genre, Rating, and Watched
+Part 4: Challenges, AI Strategy, & Goals
+1. Difficulties: What parts of this project seem the most difficult or technically
+complex?
+The most difficult seeming part of the code seems like it would be using drafter and making
+sure everything runs as intended because drafter is very different than what we have been
+doing
+2. Coding Strategy: If you will be using an LLM to help code, how will you ensure
+you understand the generated code and avoid "hallucinations" or "shallow
+learning" (copying without understanding)? If you won't be using an LLM to help
+code, this project might take about 4 hours a week to complete, so list each of
+the days and times in which you work on the project.
+I will make sure i understand the code and dont partake in shallow learning by making the
+code piece by piece and asking questions about the code and how i can use it to learn and
+make something else later down the road using the concepts discovered in this form of
+learning
+3. Goals: What is your ultimate goal for this project? (e.g., Impress the graders with
+a creative UI, build something I can use in my other classes, learn Drafter
+deeply).
+My ultimate goal is to get a passing grade and make sure that my program works as
+intended.
+Part 5: Research & Brainstorming Conversation
+Have a conversation with a Generative AI tool (like ChatGPT or Claude) OR a friend
+about your project idea. Do not ask for code. Instead, use the AI/friend as a sounding
+board to research your problem.
+1. The Initial Prompt/Question: Ask the AI or your friend to help you brainstorm.
+(e.g., "I want to build a simple web tool to help students track their study hours.
+What are 3 common problems students face when tracking their time, and what
+are 3 simple features a basic tool should have?"). Paste your prompt below:
+I want to build a simple web tool that helps movie watchers track the movies they want to
+watch and movies they have watched, what are important things to include in the web tool.
+2. The Response: Briefly summarize the best ideas the AI or your friend
+suggested. What existing solutions or prior apps did they mention?
+It said to include rating of the movie, theme/genre of the movie, a watchlist. It mentioned
+previous apps like letterboxd, imbd, and trakt
+3. The Pushback: You must reply to the AI/friend to narrow the scope when it's
+over-ambitious. Pick the most complex feature they suggested and explain why it
+is too complicated for an introductory programming project. Ask them for a
+simpler alternative. Paste your response here:
+what is a complicated feature you mentioned that might not work in an introductory cs class
+in terms of the actual idea not the example sites
+4. Reflection: Based on this conversation, how has your project idea changed or
+become more focused?
+I think i have more of an idea of what to include in my project and maybe will add more
+broad range like rather than just movies maybe i can include tv shows or games as well.
+Part 6: Resource Planning
+1. What resources will you use if you get stuck?
+I will try to see if a TA can aid me and if not i can try to use AI to guide me through the
+problem
+2. If your LLM provides code that causes a Drafter or Bakery error, or if you run into
+a problem during deployment, what is your step-by-step debugging plan to
+resolve it?
+I can have it look through the program or maybe send it the drafter documentation to find
+the error it caused.
+Part 7: LLM Conversation
+If you used an LLM in any part of this work, copy and paste every part of that
+conversation below. Otherwise, you may be given a zero for the assignment. Obviously,
+these words will not all be yours, and this is the exception to the requirement at the top
+of this assignment that all responses be in your own words. If you did not use an LLM to
+assist you in this assignment, simply say so below.
+I want to build a simple web tool that helps movie watchers track the movies they want to watch
+and movies they have watched, what are important things to include in the web tool.
+Here are the most important things to include in a movie tracking tool.
+Core features
+1. Adding movies. A short form with a title, a genre, and a star rating. Fewer fields make
+the tool faster to use.
+2. A watchlist view. One page that shows every saved movie in a table with its title, genre,
+rating, and watched status. If the list is empty, show a friendly message such as “Nothing
+here yet. Add a movie!”
+3. Watched vs. not watched. Let users mark a movie as watched once they’ve seen it,
+and make it easy to tell which movies are still waiting. This is the main purpose of the
+tool.
+4. Ratings. A simple 1 to 5 star scale so users remember how they felt about a movie.
+Showing the rating as stars makes the list easy to scan.
+5. Removing movies. Users need to delete a movie they added by mistake or no longer
+want.
+Reliability and ease of use
+6. Input checks. Reject blank titles, block duplicates (ignoring capitalization), and set a
+maximum list size.
+7. Clear feedback. After every action, show a short message like “Added Alien!” or “Please
+enter a title,” so users never wonder whether something worked.
+8. Easy navigation. A home page with buttons for adding a movie, viewing the list, and
+seeing stats, plus a way back from every page. Greeting the user by name adds a personal
+touch.
+9. A reset option. A way to clear the list and start over, with a confirmation message.
+Insight features
+10. Simple statistics.
+● The average rating across all movies
+● The user’s top-rated movie
+● How many movies they have watched out of the total
+● How many movies are in each genre, so users can see their taste
+Optional extras
+● Filter the list by genre or watched status.
+● Suggest the highest-rated unwatched movie as the next pick.
+● Record the date a movie was watched, or add personal notes.
+The first five items make up the core tool. The rest make it more dependable and more fun to
+use.
+what are some prior apps that do similar things
+Searched the web
+Letterboxd is a film diary and social network. You can see your friends’ watchlists, diaries,
+likes, and reviews, and it’s best for film culture rather than as a full TV tracker. It’s the closest
+match to your idea, since users log films, rate them, and keep lists. fossbytes
+moviebase
+Trakt is the tracker for serious users. It’s recommended for detailed movie and episode history,
+progress tracking, calendars, notifications, and imports. You can add titles to a watchlist, mark
+them as watched, or add them to a collection, which is the same watched/unwatched idea as
+your site. documentarytube
+fossbytes
+JustWatch focuses on streaming. You add titles to one synced watchlist, mark them as seen,
+and check which streaming service carries them. Its strength is answering “where can I stream
+this?” techdogs
+Others worth mentioning
+● Moviebase is an Android tracker for movies and TV, with Trakt sync, free statistics, and
+episode notifications. moviebase
+●
+● TV Time is a social tracker, with episode comments, badges, and gamification. moviebase
+●
+● IMDb has its own watchlist feature, and alternatives lists often name it as the top option.
+Alternativeto
+what is a complicated feature you mentioned that might not work in an introductory cs class
+in terms of the actual idea not the example sites
+Looking only at the features in your movie tracker idea, and not the example apps, the most
+complicated one is recording the date a movie was watched.
+Why it’s the hardest
+● Dates need a tool outside the basics of CS1, such as Python’s datetime module, or
+you’d have to parse and validate text like “03/14/2026” yourself (checking the month
+is 1 to 12, the day fits the month, leap years, and so on).
+● If the program fills in “today” automatically, unit testing gets awkward, because the
+answer changes every day.
+● Sorting or comparing dates adds more steps, and using an outside module would
+trigger the requirement to document advanced techniques.
+Next most complicated: “suggest what to watch next”
+This one is doable but trickier than the core features. You have to filter to unwatched
+movies, find the highest rating among them, and decide what happens in a tie or when
+every movie has been watched. It uses only loops and conditionals, so it fits CS1, but it
+needs careful edge-case handling and good tests.
+Features that fit CS1 comfortably
+● Adding, removing, and rating movies
+● Marking movies as watched
+● Input checks, such as blank titles, duplicates, and a size limit
+● Status messages
+● Statistics such as the average rating, the top-rated movie, and genre counts
+● A reset button
+● Filtering by genre or watched status, which needs a state field to remember the filter,
+plus a loop and an if
+● Personal notes, which are just another text field
+If a question asks which feature you left out and why, you can say you skipped dates
+because they need tools or validation that go beyond the course material, and kept the site
+focused on features built with lists, loops, and conditionals.
+Part 8: Submit
+In Google docs, with this document open, please click on File > Download > Microsoft
+Word (.docx), and make sure you put that download somewhere you can find it again.
+Then, upload it to the Canvas assignment about selecting or brainstorming your final
+project.
+When you're done with this assignment, review this page of the Drafter documentation
+to better prepare for the next step.
