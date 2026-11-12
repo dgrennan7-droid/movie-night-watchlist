@@ -1,0 +1,284 @@
+Final Project Design Phase
+Computer Science - Week 11
+Oct 3, 2026 - Version 0.0.4
+For complete instructions and project ideas, refer to the assignment in Canvas.
+Specifically, review the final project requirements before you continue below. If you have
+not reviewed the project requirements in Canvas (you might have to go to the modules
+view and check the current or past week's content), you will not be able to properly
+complete the parts below. In addition, it may be helpful to review the information on this
+Drafter documentation page.
+0) Project Planning and Preparation
+Successful programmers spend time planning before they begin coding. After reviewing
+the project requirements, answer the following questions to help guide your design and
+development process.
+A. What concepts from class or previous assignments might help you complete this
+project? Which programming concepts (loops, conditionals, lists, classes, etc.) do
+you expect to use? What programming skills do you want to improve while
+completing this project?
+Drafter intro, loops, conditionals, dataclasses.
+B. Which parts of the project do you expect to be the easiest for you? The hardest?
+Why?
+The dataclasses, the hardest part i think will be the drafter implementations
+C. Even though you have not yet designed the final project, estimate which tasks
+will likely require the most time and effort? Which features or components should
+be implemented first?
+Defining the functions and creating a working drafter site
+D. What distractions might interfere with your work and how will you minimize them?
+What resources will you need available while working? What questions, if any, do
+you still have about the assignment requirements?
+Distractions may be struggling with the assignment and trying to put it off til later
+1) Site Diagram
+Create a mock-up of your planned website. We suggest you make the mockup on
+paper, although you can also use software like PowerPoint or Slides to make a mockup.
+There is other design software that could also be used, but we strongly encourage you
+to keep it simple. Do not spend more than 15-30 minutes detailing the mock-up. Your
+goal should be to make a very quick and dirty diagram, to show that you have some
+kind of idea.
+We recommend drawing each page as a rectangle, and laying out the text, buttons, and
+other components inside. Then, use arrows to indicate links between pages. Label each
+page the way you will name each function, and then put labels on the arrows to indicate
+what the button links. Also write down any parameters that should come into the pages.
+In addition to the pages and routes, write down what fields your `State` will have, both
+their names and types. Think clearly about what data will need to be persistent across
+the entire website.
+Add photo(s) or screenshot(s) of your website mock-up and labeled diagram on the next
+page.
+Index (stabe)
+nomиpl addpuge 1t-page
+Sce
+add rave
+tstys
+State Provie
+reset1t
+2) Implementing Requirements
+This table should serve as a draft for how you will implement the requirements into your
+final project. You may change your ideas later on, but your final site must fulfill all the
+requirements.
+Requirement Implementation
+Purpose/Functionality
+A 1-2 sentence description of the
+purpose or functionality of your
+site
+Make a watchlist of movies and mark them as
+watched or unwatched to keep track of ones that
+user has seen. They can also see stats like
+average rating and genre.
+State Dataclass Attributes
+Minimum of 4 attributes, one of
+which must be a list/dict of
+instances of your second
+dataclass.
+Briefly describe each attribute, its
+type, and how it will be
+meaningfully modified throughout
+the site.
+owner_name: str: the user’s name, shown in the
+greeting and changed through the name page
+watchlist: list[Movie]: all movies on the list. It grows
+when a movie is added, shrinks when one is
+removed, and has its watched fields changed when a
+movie is marked watched
+movies_watched: int: how many movies are watched.
+It’s recalculated with count_watched after marking or
+removing a movie, and reset to 0 when the list is
+cleared
+status_message: str: feedback shown on pages,
+such as “Added Alien!” or “Please enter a title.” It’s
+updated by nearly every handler route
+Second Dataclass
+Your second dataclass, including
+its attributes, their types, and how
+they will be meaningfully modified
+(if they are modified)
+Movie with these attributes:
+title: str: set when the movie is added and never
+changed
+genre: str: chosen from a SelectBox when the movie
+is added
+rating: int: 1 to 5, converted from the SelectBox string
+when the movie is added
+watched: bool: starts as False and becomes True in
+mark_watched
+Routes (minimum 7) index, name_page, save_name, add_page,
+The names of your route
+functions
+add_movie, list_page, mark_watched,
+remove_movie, stats_page, reset_list
+Pages (minimum 5)
+A brief description of the pages in
+your site
+index: home page with a greeting, status, movie
+counts, and navigation buttons
+name_page: form for changing the owner’s name
+add_page: form to enter a title, genre, and rating for
+a new movie
+list_page: table of all movies, with controls to mark
+one watched or remove one
+stats_page: average rating, top-rated movie, watched
+count, and a table of movies per genre
+User Input (minimum 3)
+Description of user input
+components (TextBox, TextArea,
+CheckBox, or SelectBox) and
+their purposes
+For more information on these
+input types, see Drafter
+Documentation.
+TextBox("owner_name") on name_page: type a new
+name
+TextBox("title") on add_page: type the movie title.
+SelectBox("genre") on add_page: pick one of the five
+genres
+SelectBox("rating") on add_page: pick 1 to 5 stars
+SelectBox("title_to_watch") on list_page: pick which
+unwatched movie to mark watched
+SelectBox("title_to_remove") on list_page: pick which
+movie to delete
+If Statements (minimum 3)
+Brief description of what will be
+evaluated in your if statements
+and how they will meaningfully
+change the logic of the site
+save_name: if the trimmed name is blank, show an
+error and return to name_page otherwise save it
+add_movie: if the list is full, the title is blank, or the
+title is a duplicate (checked with find_movie), show
+an error and stay on add_page. Otherwise append
+the new Movie
+list_page: if the watchlist is empty, show “Nothing
+here yet” instead of the table. If there are unwatched
+movies, show the “Mark as watched” controls
+mark_watched and remove_movie: if find_movie
+returns -1, show “Couldn’t find that movie.” Otherwise
+update or remove it
+stats_page: if the list is empty, redirect to add_page
+instead of showing meaningless stats
+Loop (minimum 1)
+This loop must iterate over the
+list/dict of dataclass instances in
+your State attribute.
+Description of this loop and why it
+is meaningful to the site
+In list_page, a for loop iterates over state.watchlist.
+For each Movie, it builds a table row with the title,
+genre, star rating, and watched status. This is how
+the user sees their whole list, and it updates
+automatically as movies change.
+The helper functions average_rating, count_genre,
+count_watched, find_movie, unwatched_titles,
+all_titles, and top_movie also loop over
+state.watchlist. They power the stats, the dropdown
+choices, and the duplicate check
+LLM Conversation
+If you used an LLM in any part of this work, copy and paste every part of that
+conversation below. Otherwise, you may be given a zero for the assignment. Obviously,
+these words will not all be yours, and this is the exception to the requirement at the top
+of this assignment that all responses be in your own words. If you did not use an LLM to
+assist you in this assignment, simply say so below.
+Requirement
+Implementation
+Purpose/Functionality
+A 1-2 sentence description of the purpose or functionality of your site
+State Dataclass Attributes
+Minimum of 4 attributes, one of which must be a list/dict of instances of your second
+dataclass.
+Briefly describe each attribute, its type, and how it will be meaningfully modified
+throughout the site.
+Second Dataclass
+Your second dataclass, including its attributes, their types, and how they will be
+meaningfully modified (if they are modified)
+Routes (minimum 7)
+The names of your route functions
+Pages (minimum 5)
+A brief description of the pages in your site
+User Input (minimum 3)
+Description of user input components (TextBox, TextArea, CheckBox, or SelectBox)
+and their purposes
+For more information on these input types, see Drafter Documentation.
+If Statements (minimum 3)
+Brief description of what will be evaluated in your if statements and how they will
+meaningfully change the logic of the site
+Loop (minimum 1)
+This loop must iterate over the list/dict of dataclass instances in your State attribute.
+Description of this loop and why it is meaningful to the site
+*along with code for the project
+Here’s the table filled in from your code. It’s written to paste straight into the template.
+Requirement Implementation
+Purpose/Functionali
+ty
+Movie Night Watchlist lets a user build a personal list of
+movies, giving each a genre and a 1-5 star rating. They can
+mark movies as watched, remove them, and view stats such
+as their average rating, top-rated movie, and genre
+breakdown.
+State dataclass
+attributes
+owner_name: str: the user’s name, shown in the greeting
+and changed through the name page.
+watchlist: list[Movie]: all movies on the list. It grows
+when a movie is added, shrinks when one is removed, and
+has its watched fields changed when a movie is marked
+watched.
+movies_watched: int: how many movies are watched.
+It’s recalculated with count_watched after marking or
+removing a movie, and reset to 0 when the list is cleared.
+status_message: str: feedback shown on pages, such
+as “Added Alien!” or “Please enter a title.” It’s updated by
+nearly every handler route.
+Second dataclass Movie, with these attributes:
+title: str: set when the movie is added and never
+changed.
+genre: str: chosen from a SelectBox when the movie is
+added.
+rating: int: 1 to 5, converted from the SelectBox string
+when the movie is added.
+watched: bool: starts as False and becomes True in
+mark_watched.
+Routes (10) index, name_page, save_name, add_page, add_movie,
+list_page, mark_watched, remove_movie,
+stats_page, reset_list
+Pages (5) index: home page with a greeting, status, movie counts,
+and navigation buttons.
+name_page: form for changing the owner’s name.
+add_page: form to enter a title, genre, and rating for a new
+movie.
+list_page: table of all movies, with controls to mark one
+watched or remove one.
+stats_page: average rating, top-rated movie, watched
+count, and a table of movies per genre.
+User input (6) TextBox("owner_name") on name_page: type a new
+name.
+TextBox("title") on add_page: type the movie title.
+SelectBox("genre") on add_page: pick one of the five
+genres.
+SelectBox("rating") on add_page: pick 1 to 5 stars.
+SelectBox("title_to_watch") on list_page: pick
+which unwatched movie to mark watched.
+SelectBox("title_to_remove") on list_page: pick
+which movie to delete.
+If statements save_name: if the trimmed name is blank, show an error
+and return to name_page. Otherwise save it.
+add_movie: if the list is full, the title is blank, or the title is a
+duplicate (checked with find_movie), show an error and
+stay on add_page. Otherwise append the new Movie.
+list_page: if the watchlist is empty, show “Nothing here
+yet” instead of the table. If there are unwatched movies,
+show the “Mark as watched” controls.
+mark_watched and remove_movie: if find_movie returns
+-1, show “Couldn’t find that movie.” Otherwise update or
+remove it.
+stats_page: if the list is empty, redirect to add_page
+instead of showing meaningless stats.
+Loop In list_page, a for loop iterates over state.watchlist.
+For each Movie, it builds a table row with the title, genre,
+star rating, and watched status. This is how the user sees
+their whole list, and it updates automatically as movies
+change.
+The helper functions average_rating, count_genre,
+count_watched, find_movie, unwatched_titles,
+all_titles, and top_movie also loop over
+state.watchlist. They power the stats, the dropdown
+choices, and the duplicate check.
+Final Submission
+When you are finished, download this file as a Word Document (docx) and upload the
+file to the appropriate assignment on Canvas.
